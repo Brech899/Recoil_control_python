@@ -8,7 +8,7 @@ mueve el mouse hacia abajo en pequeños incrementos para compensar el recoil.
 Funciona bajo Wayland/Sway porque:
   - Lee los eventos del mouse directamente vía evdev (no depende de X11).
   - Inyecta el movimiento vía ydotool, que usa /dev/uinput y funciona en
-    cualquier compositor Wayland (incluido Sway).
+    cualquier compositor Wayland.
 
 REQUISITOS
 ----------
