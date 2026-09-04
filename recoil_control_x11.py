@@ -58,9 +58,13 @@ except ImportError:
     )
 
 # ---------------------- CONFIGURACIÓN ----------------------
+print ("Busque su mouse en los event Usa ctrl + C para continuar")
+os.system("evtest")
+print ()
+event = input("Ingresa el numero del event: ")
 
 # Path del dispositivo de mouse (ver instrucciones arriba para encontrarlo).
-MOUSE_DEVICE = "/dev/input/event5"
+MOUSE_DEVICE = "/dev/input/event" + event
 
 # Píxeles que se mueve hacia abajo en cada "tick" de compensación.
 PULL_DOWN_PX = 2

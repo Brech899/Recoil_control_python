@@ -8,7 +8,7 @@ mueve el mouse hacia abajo en pequeños incrementos para compensar el recoil.
 Funciona bajo Wayland/Sway porque:
   - Lee los eventos del mouse directamente vía evdev (no depende de X11).
   - Inyecta el movimiento vía ydotool, que usa /dev/uinput y funciona en
-    cualquier compositor Wayland.
+    cualquier compositor Wayland (incluido Sway).
 
 REQUISITOS
 ----------
@@ -47,6 +47,7 @@ import subprocess
 import threading
 import time
 import sys
+import os 
 
 try:
     import evdev
@@ -57,9 +58,15 @@ except ImportError:
     )
 
 # ---------------------- CONFIGURACIÓN ----------------------
+print ("Busque su mouse en los event Usa ctrl + C para continuar")
+os.system("evtest")
+print ()
+event = input("Ingresa el numero del event: ")
+
+
 
 # Path del dispositivo de mouse (ver instrucciones arriba para encontrarlo).
-MOUSE_DEVICE = "/dev/input/event4"
+MOUSE_DEVICE = "/dev/input/event" + event
 
 # Píxeles que se mueve hacia abajo en cada "tick" de compensación.
 PULL_DOWN_PX = 3
